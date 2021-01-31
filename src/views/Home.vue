@@ -1,68 +1,57 @@
 <template>
-  <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-app>
+    <ion-split-pane when="sm" content-id="main-content">
+      <Menu/>
+      <div class="ion-page" id="main-content">
+        <ion-header :translucent="true">
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-toggle>
+                <ion-button>
+                  <ion-icon slot="icon-only" name="menu"></ion-icon>
+                </ion-button>
+              </ion-menu-toggle>
+            </ion-buttons>
+            <ion-title>Fixer.io App</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <div class="container">
+            <ion-text class="ion-text-center" color="danger"><h1>Fixer.io App</h1></ion-text>
+            <Searchh/>
+            <Results/>
+          </div>
+        </ion-content>
       </div>
-    </ion-content>
-  </ion-page>
+    </ion-split-pane>
+  </ion-app>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonSplitPane, IonButtons, IonMenuToggle, IonHeader, IonApp, IonTitle, IonToolbar, IonText, IonButton, IonIcon } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import Menu from '../components/Menu.vue'
+import Searchh from '../components/Searchh.vue'
+import Results from '../components/Results.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
+    Menu,
+    Searchh,
+    Results,
     IonContent,
+    IonSplitPane,
     IonHeader,
-    IonPage,
+    IonApp,
     IonTitle,
-    IonToolbar
-  }
+    IonToolbar,
+    IonText,
+    IonButton,
+    IonIcon,
+    IonButtons,
+    IonMenuToggle
+  },
 });
 </script>
-
-<style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-</style>
