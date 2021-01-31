@@ -1,0 +1,7 @@
+{
+  "name": "Ionic-Vue-Fixer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
